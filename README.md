@@ -8,6 +8,7 @@ Variables/Features:
 5) Volume of Imports to top importing countries (US, Germany, France, Italy, Canada)
 6) Exchange Rates
 7) Weather????????????????????
+
 Possible Methods:
 1) Linear Regression (AR, MA, ARIMA, GARCH models)
 2) Polynomial Regression models 
