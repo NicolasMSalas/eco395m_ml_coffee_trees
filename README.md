@@ -17,6 +17,3 @@ Possible Methods:
 4) Random Forests ?
 5) Ridge Regression
 6) Neural Networks common in research papers
-7)
-
-
