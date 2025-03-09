@@ -2,7 +2,6 @@ import pandas as pd
 
 file_path = "data/commodity_prices.csv"
 
-# Read the CSV file
 df = pd.read_csv(file_path)
 
 commodities = [
@@ -32,6 +31,16 @@ for index, row in df_monthly.iterrows():
 
 df_transposed = df_monthly.set_index("Commodity Name").T
 df_transposed.dropna(axis=1, how='all', inplace=True)
+
+# Rename columns according to the commodities
+commodity_name_map = {
+    "Coffee, Other Mild Arabica ": "Coffee",
+    "Tea, Kenyan ": "Tea",
+    "Dairy Products, Milk": "Milk",
+    "Sugar, No. 11, World ": "Sugar"
+}
+
+df_transposed.rename(columns=commodity_name_map, inplace=True)
 
 # Format the index as MM/YYYY
 df_transposed.index = pd.to_datetime(df_transposed.index, format='%YM%m').strftime('%m/%Y')
