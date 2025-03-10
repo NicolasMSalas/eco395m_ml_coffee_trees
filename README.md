@@ -23,3 +23,4 @@ Possible Methods:
 https://fred.stlouisfed.org/series/NGDPRSAXDCBRQ
 
 <h1 align="center">Coffee Trees Midterm Project</h1>
+<div> In this project, we are predicting the global price of coffee using different time series models within machine learning.</div>
