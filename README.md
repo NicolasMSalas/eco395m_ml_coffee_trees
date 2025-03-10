@@ -21,3 +21,5 @@ Possible Methods:
 6) Neural Networks common in research papers
 
 https://fred.stlouisfed.org/series/NGDPRSAXDCBRQ
+
+<h1 align="center">Coffee Trees Midterm Project</h1>
