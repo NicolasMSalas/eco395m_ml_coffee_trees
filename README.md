@@ -20,6 +20,6 @@ Possible Methods:
 5) Ridge Regression
 6) Neural Networks common in research papers
 
-<h1 align="center"><img src="images/coffee_bean.png" witdh="150"></h1>
+<h1 align="center"><img src="images/coffee_bean.png" witdh="50"></h1>
 <h1 align="center">Coffee Trees Midterm Project</h1>
 <div> In this project, we are predicting the global price of coffee using different time series models within machine learning.</div>
