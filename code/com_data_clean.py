@@ -1,6 +1,6 @@
 import pandas as pd
 
-file_path = "data/commodity_prices.csv"
+file_path = "raw_data/commodity_prices.csv"
 
 df = pd.read_csv(file_path)
 
@@ -46,6 +46,6 @@ df_transposed.rename(columns=commodity_name_map, inplace=True)
 df_transposed.index = pd.to_datetime(df_transposed.index, format='%YM%m').strftime('%m/%Y')
 df_transposed.index.name = "Date"
 
-output_file = "data/global_commodity_prices.csv"
+output_file = "clean_data/global_commodity_prices.csv"
 
 df_transposed.to_csv(output_file)
