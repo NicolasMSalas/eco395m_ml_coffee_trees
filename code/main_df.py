@@ -4,7 +4,7 @@ from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import IterativeImputer
 
 notebook_dir = os.path.dirname(os.path.abspath("__file__"))
-csv_path = os.path.join(notebook_dir, '..', 'data/')
+csv_path = os.path.join(notebook_dir, '..', 'clean_data')
 
 def load_exchange_data(filename):
     """Load currency exchange data from csv file"""

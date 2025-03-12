@@ -54,4 +54,4 @@ output_file = os.path.join(output_dir, "commodity_prices_clean.csv")
 
 os.makedirs(output_dir, exist_ok=True)
 
-df_transposed.to_csv(output_file, index=True)
+df_transposed.to_csv(output_file, index=False)
