@@ -46,6 +46,11 @@ DESCRIBE THE MODEL YOU CHOSE, AND WHY YOU CHOSE IT
 
 ## Nick
 
+## Chris
+I chose ridge regression because it handles multicollinearity really well and prevents overfitting with time series data that includes multiple correlated features (exchange rates, commodity prices, weather conditions...). Ridge regression  penalizes large coefficients, which helps stabilize predictions. It's especially useful for dealing with noisy and highly correlated data.
+
+
+
 # Results
 DESCRIBE YOUR MODEL RESULTS
 ## Vighnesh
@@ -53,6 +58,8 @@ DESCRIBE YOUR MODEL RESULTS
 ## Matias
 
 ## Nick
+
+## Chris
 
 ## Talk about which model was the "Winner" 
 
