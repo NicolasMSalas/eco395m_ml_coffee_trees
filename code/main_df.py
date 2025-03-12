@@ -21,11 +21,14 @@ df_cop = load_exchange_data('cop_data_clean.csv')
 futures_path = os.path.join(csv_path, 'futures_clean.csv')
 df_futures = pd.read_csv(futures_path)
 
+sentiment_path = os.path.join(csv_path, 'sentiment_clean.csv')
+df_sentiment = pd.read_csv(sentiment_path)
+
 commodity_path = os.path.join(csv_path, 'commodity_prices_clean.csv')
 df_commodity = pd.read_csv(commodity_path)
 
 merged_df = df_brl.copy()
-for df in [df_vnd, df_hnl, df_idr, df_commodity, df_cop, df_futures]:
+for df in [df_vnd, df_hnl, df_idr, df_commodity, df_cop, df_sentiment]:
     merged_df = pd.merge(merged_df, df, on="Date", how="inner")
     
 imputer = IterativeImputer(random_state=42)
