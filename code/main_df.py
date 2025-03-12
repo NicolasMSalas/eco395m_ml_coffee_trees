@@ -2,6 +2,7 @@ import os
 import pandas as pd
 from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import IterativeImputer
+from sklearn.feature_selection import mutual_info_regression
 
 notebook_dir = os.path.dirname(os.path.abspath("__file__"))
 csv_path = os.path.join(notebook_dir, '..', 'clean_data')
@@ -51,9 +52,22 @@ merged_df.iloc[:, 1:] = imputer.fit_transform(merged_df.iloc[:, 1:])
 merged_df["Date"] = pd.to_datetime(merged_df["Date"], errors="coerce", format="%m/%Y")
 merged_df["Date"] = pd.PeriodIndex(merged_df["Date"], freq="M")
 
+y_diff = merged_df['Coffee']
+
+X = merged_df.drop(columns=['Date'])
+
+X, y_diff = X.align(y_diff, join='inner', axis=0)
+
+mi_scores = mutual_info_regression(X, y_diff)
+
+mi_scores_series = pd.Series(mi_scores, index=X.columns).sort_values(ascending=False)
+
+non_zero_mi_scores = mi_scores_series[mi_scores_series > 0]
+X_filtered = X[non_zero_mi_scores.index]
+
 output_dir = os.path.join(csv_path, '..', 'clean_data')
 output_file = os.path.join(output_dir, "main_df_clean.csv")
 
 os.makedirs(output_dir, exist_ok=True)
 
-merged_df.to_csv(output_file, index=False)
+X_filtered.to_csv(output_file, index=False)
