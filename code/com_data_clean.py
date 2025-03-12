@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 file_path = os.path.dirname(os.path.abspath("__file__"))
-csv_path = os.path.join(file_path, '..', 'data', 'commodity_prices.csv')
+csv_path = os.path.join(file_path, '..', 'raw_data', 'commodity_prices.csv')
 
 df = pd.read_csv(csv_path)
 
@@ -48,8 +48,9 @@ df_transposed.rename(columns=commodity_name_map, inplace=True)
 df_transposed.index = pd.to_datetime(df_transposed.index, format='%YM%m').strftime('%m/%Y')
 df_transposed.index.name = "Date"
 
-output_dir = os.path.join(file_path, '..', 'data')
+output_dir = os.path.join(file_path, '..', 'clean_data')
 output_file = os.path.join(output_dir, "commodity_prices_clean.csv")
+
 
 os.makedirs(output_dir, exist_ok=True)
 
