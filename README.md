@@ -1,25 +1,3 @@
-# eco395m_ml_coffee_trees
-Topic: Forecasting Coffee Commodity Prices
-Variables/Features:
-1) Real GDP of top 5 coffee exporting country (Brazil, Vietnam, Colombia, Indonesia, Honduras)
-2) News/Sentiment Analysis
-3) Complements (Milk/Sugar), Substitutes(Tea)
-    * The units used in the FRED data measures by cents per pound. I think it would be helpful to convert to USD per pound.
-    * The tea data is measured in cents per kilogram. When using it, convert to USD per POUND.
-5) Political Stability
-6) Volume of Imports to top importing countries (US, Germany, France, Italy, Canada)
-7) Exchange Rates
-8) Price of Coffee Futures in Commodity Markets
-9) Weather????????????????????
-
-Possible Methods:
-1) Linear Regression (AR, MA, ARIMA, GARCH models)
-2) Polynomial Regression models 
-3) KNN Regression
-4) Random Forests ?
-5) Ridge Regression
-6) Neural Networks common in research papers
-
 <h1 align="center"><img src="images/decision_tree.png" width="500"></h1>
 <h1 align="center">Coffee Trees Midterm Project</h1>
 <div> In this project, we are predicting the global price of coffee using different time series models within machine learning.</div>
@@ -30,6 +8,14 @@ The goal of this project is to predict the monthly price of Coffee futures at th
 # Data Sources & Collection 
 EACH PERSON FILL IN WHERE YOU GOT YOUR DATA
 The sentiment ratio data is from the Nexis Uni search function. We divided the amount of "marked negative" (as determined by their news reviewing AI) articles about coffee in a finance and banking setting by the total number of articles about coffee in the topics of finance and banking from 1990 to 2025. The Data was only yearly so we split the change for each number into 12 equal parts, one for each month, then divided the numbers by one another each month to get a "sentiment ratio."
+
+## Exchange Rates
+
+## Commodity Prices
+
+## Futures Closing Prices
+
+## Weather Data
 
 # Limitations of the Data
 EACH PERSON FILL IN WHAT THE LIMITATIONS OF YOUR DATA ARE
