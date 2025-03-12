@@ -17,6 +17,8 @@ The sentiment ratio data is from the Nexis Uni search function. We divided the a
 
 ## Weather Data
 
+## News Sentiment
+
 # Limitations of the Data
 EACH PERSON FILL IN WHAT THE LIMITATIONS OF YOUR DATA ARE
 
