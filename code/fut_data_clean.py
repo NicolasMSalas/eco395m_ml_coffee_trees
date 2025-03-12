@@ -14,6 +14,10 @@ df_filtered = df_filtered.dropna(subset=['time'])
 
 df_filtered = df_filtered[df_filtered['time'].dt.year >= 1990]
 
+df_filtered.rename(columns={'time': 'Date'}, inplace=True)
+
+df_filtered['Date'] = pd.to_datetime(df_filtered['Date']).dt.strftime('%m/%Y')
+
 output_dir = os.path.join(file_path, '..', 'clean_data')
 output_file = os.path.join(output_dir, "futures_clean.csv")
 
