@@ -1,1 +1,11 @@
+numpy
 pandas
+matplotlib
+statsmodels
+scikit-learn
+arch
+sktime
+openmeteo-requests
+requests-cache
+retry-requests
+os
