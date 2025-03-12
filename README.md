@@ -34,7 +34,9 @@ The sentiment ratio data is from the Nexis Uni search function. We divided the a
 # Limitations of the Data
 EACH PERSON FILL IN WHAT THE LIMITATIONS OF YOUR DATA ARE
 
-The Sentiment Ratio data is not as helpful as it could have been if we had gathered it on a monthly basis, considering that we are trying to predict coffee prices on a monthly basis. 
+The Sentiment Ratio data and the import data for the top coffee importing countries is not as helpful as it could have been if we had gathered it on a monthly basis, considering that we are trying to predict coffee prices on a monthly basis. 
+
+
 
 # Models
 DESCRIBE THE MODEL YOU CHOSE, AND WHY YOU CHOSE IT
