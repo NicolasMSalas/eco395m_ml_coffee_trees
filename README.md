@@ -30,31 +30,22 @@ We had to take first differences of all our data to make it stationary, then we 
 
 ![image](https://github.com/user-attachments/assets/145919e8-dc83-424f-a258-9c2927e85da7)
 
-# Models
+# Models and Results
 ## KNN
 We fit a Time Series KNN Model. Rather than `train_test_split`, we consider `temporal_train_test_split`, which preserves the order of the data. We used `Standard Scalar` to scale the explanatory variables as KNN is a distance-based model. Through `GridSearchCV`, we got optimal k=11, and `weights = "distance"`, which indicates that this would be a weighted KNN model. 
 
-## Polynomial Regression
-We fit a Polynomial Regression model, using data before 2018 as the training set and data during and after 2018 as the test set. We did this to see if there were any non-linear relationships between coffee prices and any of the features.
-## Linear Regression
-We fit on linear regression as it allowed for the use of classic Time Series models. In this case, we are focusing on the ARMA(1,1), the GARCH(1,1) and the ARDL(1,1) models. The ARMA model is selected as the ACF/PACF graphs hint that the coffee data follows this model outline. The GARCH model was considered as it takes the conditiional heteroskedasticity of the values into account, which is used for financial time series models. The ARDL model is different when compared to the previous two as it takes other variables into consideration. The number of lags for each model was determined by looking for the combination that gave the smallest AIC, BIC, and MSE. Much like the KNN, the `temporal_train_test_split` was used to train and test the model while maintaining the order of the data.
-
-## Random Forest
-Traditional Random Forest regressors are not inherently designed for time series seasonality, trends, or autocorrelation. However we wanted to see how well a random forest model could predict coffee prices. Random Forest is an ensemble learning method that combines multiple decision trees. Each tree is trained on a bootstrap sample (i.e., a random subset) of the training data, and the final prediction is typically the average of all the individual trees’ predictions. 
-
-## Ridge Regression
-We chose ridge regression because it handles multicollinearity really well and prevents overfitting with time series data that includes multiple correlated features (exchange rates, commodity prices, weather conditions...). Ridge regression is a linear model which penalizes large coefficients. The penalty shrinks large weights, which helps reduce variance in predictions. It's especially useful for dealing with noisy and highly correlated data. We're dealing with a lot of features and I wanted a straightforward way to incorporate them all without inflating the model parameters.
-
-
-# Results
-## KNN
 Test MSE is 0.5820. I do a mutual information score on the differenced variables as well and reduce it to 14 features mostly to allow faster computation with KNN.
 ![image](https://github.com/NicolasMSalas/eco395m_ml_coffee_trees/blob/03294979d6c1af072a34b631d7954f331553ddf9/images/knn.png)
 
 
 ## Polynomial Regression
-We ran intervals of `GridSearchCV` , finding that the best degree was one. Therefore, we moved to linear regression. 
+We fit a Polynomial Regression model, using data before 2018 as the training set and data during and after 2018 as the test set. We did this to see if there were any non-linear relationships between coffee prices and any of the features.
+
+We ran intervals of `GridSearchCV` , finding that the best degree was one. Therefore, we moved to linear regression.
+
 ## Linear Regression
+We fit on linear regression as it allowed for the use of classic Time Series models. In this case, we are focusing on the ARMA(1,1), the GARCH(1,1) and the ARDL(1,1) models. The ARMA model is selected as the ACF/PACF graphs hint that the coffee data follows this model outline. The GARCH model was considered as it takes the conditiional heteroskedasticity of the values into account, which is used for financial time series models. The ARDL model is different when compared to the previous two as it takes other variables into consideration. The number of lags for each model was determined by looking for the combination that gave the smallest AIC, BIC, and MSE. Much like the KNN, the `temporal_train_test_split` was used to train and test the model while maintaining the order of the data.
+
 When looking at the various models used within the linear regression format, the following models are created.
 
 ![image](https://github.com/user-attachments/assets/85e2c36d-21e7-4157-adf8-96956614b407)
@@ -66,11 +57,15 @@ When looking at the various models used within the linear regression format, the
 When comparing the three models, we can see that the ARDL model has the lowest AIC, BIC, and Test MSE. This is most likely due to the inclusion of other features that might help explain the price changes beyond changes in the previous coffee prices. However, there is potential overfitting when including the large selection of features, even when they have been reduced to fit better. There are also other forms of GARCH that take the conditional means and other parameters into consideration when building the model.
 
 ## Random Forest
+Traditional Random Forest regressors are not inherently designed for time series seasonality, trends, or autocorrelation. However we wanted to see how well a random forest model could predict coffee prices. Random Forest is an ensemble learning method that combines multiple decision trees. Each tree is trained on a bootstrap sample (i.e., a random subset) of the training data, and the final prediction is typically the average of all the individual trees’ predictions.
+
 The model forecasts the differenced series. To convert these forecasts back to level forecasts, we perform a cumulative sum of the predicted differences and add the last observed Coffee price from the training period. We do the same with the test set differences to obtain actual levels, then compute the Mean Squared Error on these level forecasts. The Mean Squared Error on Level Predictions: '0.40627'. In terms of the RMSE value, on average our model’s predictions are off by around $0.64 per pound.
 
 ![image](https://github.com/user-attachments/assets/376c1f70-85f5-4226-8179-da58ffa56cc3)
 
 ## Ridge Regression
+We chose ridge regression because it handles multicollinearity really well and prevents overfitting with time series data that includes multiple correlated features (exchange rates, commodity prices, weather conditions...). Ridge regression is a linear model which penalizes large coefficients. The penalty shrinks large weights, which helps reduce variance in predictions. It's especially useful for dealing with noisy and highly correlated data. We're dealing with a lot of features and I wanted a straightforward way to incorporate them all without inflating the model parameters.
+
 ![output6](https://github.com/user-attachments/assets/18246c86-c023-4767-a92d-20d5fd994975)
 
 We looked at the differenced coffee price data. The optimal alpha value was found to be 100, and our best MSE was 0.0090. Overall, the model succeeded in extracting meaningful signals.
