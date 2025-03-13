@@ -1,6 +1,6 @@
 import pandas as pd
 import os
-from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.model_selection import  GridSearchCV
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 from sklearn.pipeline import make_pipeline
