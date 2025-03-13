@@ -23,7 +23,7 @@ y_train=before["Coffee"].values
 X_test=after.drop(columns=["Coffee","Date"])
 y_test=after["Coffee"].values
 
-
+# Change the range to get MSE for degrees greater than 5
 grid_search = GridSearchCV(estimator=make_pipeline(PolynomialFeatures(), LinearRegression(fit_intercept=False)) ,param_grid = {'polynomialfeatures__degree': range(0,5)}, scoring='neg_mean_squared_error')
 
 grid_search.fit(X_train, y_train)
@@ -45,6 +45,7 @@ test_mse = mean_squared_error(y_test,best_model.predict(X_test))
 print("Best Degree: ", best_degree)
 print("Train MSE: ", train_mse)
 print("Test MSE: ", test_mse)
+# For degree 1, we can use the following to get the coefficients
 '''coef=pd.DataFrame({"variable": X_train.columns,
 	"coefficient":coefficients})
 print("Best Model Coefficients: \n",coef)'''
