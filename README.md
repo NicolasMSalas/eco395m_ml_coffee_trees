@@ -4,10 +4,22 @@
 
 
 # Introduction
-The goal of this project is to predict the monthly price of Coffee futures at the Chicago Stock exchange, using data from 1990 to the present day. We want to both predict the price of coffee futures for a range of dates and also forecast the price of coffee futures one month in the future, using information up to that day. We will use several different Machine Learning models and compare their results. 
+The goal of this project is to predict the monthly price of Coffee futures at the Chicago Stock exchange, using data from 1990 to the present day. Specifically, we want to predict the price of coffee futures for a range of dates. We will use several different Machine Learning models and compare their results. 
 # Data Sources & Collection 
-EACH PERSON FILL IN WHERE YOU GOT YOUR DATA
-The sentiment ratio data is from the Nexis Uni search function. We divided the amount of "marked negative" (as determined by their news reviewing AI) articles about coffee in a finance and banking setting by the total number of articles about coffee in the topics of finance and banking from 1990 to 2025. The Data was only yearly so we split the change for each number into 12 equal parts, one for each month, then divided the numbers by one another each month to get a "sentiment ratio."
+## Exchange Rates
+The exchange rates data was taken from the IMF database. It is measured as the value of the foreign currencies for 1 USD. The data was downloaded from the website and placed into the `raw_data` folder.
+## Commodity Prices
+
+## Futures Closing Prices
+
+## Weather Data
+
+## News Sentiment
+The sentiment ratio data is from the Nexis Uni search function. We divided the amount of "marked negative" (as determined by their news reviewing AI) articles about coffee in a finance and banking setting by the total number of articles about coffee in the topics of finance and banking from 1990 to 2025. The data was only yearly so we split the change for each number into 12 equal parts, one for each month, then divided the numbers by one another each month to get a "sentiment ratio."
+
+
+# Limitations of the Data
+EACH PERSON FILL IN WHAT THE LIMITATIONS OF YOUR DATA ARE
 
 ## Exchange Rates
 
@@ -18,12 +30,7 @@ The sentiment ratio data is from the Nexis Uni search function. We divided the a
 ## Weather Data
 
 ## News Sentiment
-
-# Limitations of the Data
-EACH PERSON FILL IN WHAT THE LIMITATIONS OF YOUR DATA ARE
-
 The Sentiment Ratio data and the import data for the top coffee importing countries is not as helpful as it could have been if we had gathered it on a monthly basis, considering that we are trying to predict coffee prices on a monthly basis. 
-
 
 
 # Models
@@ -34,9 +41,9 @@ DESCRIBE THE MODEL YOU CHOSE, AND WHY YOU CHOSE IT
 
 ## Nick
 
+
 ## Chris
 I chose ridge regression because it handles multicollinearity really well and prevents overfitting with time series data that includes multiple correlated features (exchange rates, commodity prices, weather conditions...). Ridge regression  penalizes large coefficients, which helps stabilize predictions. It's especially useful for dealing with noisy and highly correlated data.
-
 
 
 # Results
