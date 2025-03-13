@@ -98,6 +98,7 @@ Extracted and cleaned weather information. Fit optimal KNN model using GridSearc
 ### Chris Cain
 
 ### Juan Guerra
+Cleaned/pulled commodities data, and futures data. Created one data frame with all merged features. Worked on the random forest model code.
 
 ### Benjamin Hinrichs
 Extracted and cleaned sentiment data, troubleshot on several models, organized readme, gathered info for requirement file
