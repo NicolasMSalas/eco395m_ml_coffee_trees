@@ -57,9 +57,9 @@ DESCRIBE YOUR MODEL RESULTS
 ## Nick
 | Models  | ARMA(1,1) | GARCH(1,1) | ARDL(1,1) |
 |---------|----------|-----------|----------|
-| **AIC** | ---      | ---       | ---      |
-| **BIC** | ---      | ---       | ---      |
-| **MSE** | ---      | ---       | ---      |
+| **AIC** | -546.940 | -533.7 | -789.4 |
+| **BIC** | -531.696 | -526.1 | -628.3 |
+| **Test MSE** | 0.3708 | 0.3971 | 0.0538 |
 
 ## Chris
 We looked at the differenced coffee price data. I built lagged features from all available numeric columns and then used Ridge regression to fit those features. The optimal alpha value was found to be 100, which yielded an RMSE of about 0.095 on the test set and an R² of about 0.29. The model outperformed trivial baselines that produced RMSE values around 0.115, but didn't achieve exceptional accuracy. Overall, the model succeeded in extracting meaningful signals from the lagged features.
