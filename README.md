@@ -37,6 +37,9 @@ We fit a Time Series KNN Model. Rather than `train_test_split`, we consider `tem
 Test MSE is 0.5820. I do a mutual information score on the differenced variables as well and reduce it to 14 features mostly to allow faster computation with KNN.
 ![image](https://github.com/NicolasMSalas/eco395m_ml_coffee_trees/blob/03294979d6c1af072a34b631d7954f331553ddf9/images/knn.png)
 
+The mutual information score for the 14 features are given below.
+![image](https://github.com/NicolasMSalas/eco395m_ml_coffee_trees/blob/907f7a39fdea00886fa4598d6aabeee225dd294a/images/knn_mutual_info.png)
+
 
 ## Polynomial Regression
 We fit a Polynomial Regression model, using data before 2018 as the training set and data during and after 2018 as the test set. We did this to see if there were any non-linear relationships between coffee prices and any of the features.
