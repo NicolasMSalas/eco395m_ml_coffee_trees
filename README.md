@@ -26,7 +26,7 @@ Before fitting any models we derive mutual information scores to reduce our numb
 
 We had to take first differences of all our data to make it stationary, then we take the cumulative sum of the first differences to predict the actual price of coffee.
 
-## Global Coffee Prices (1990 - Nov 2024)
+## Global Coffee Prices (Jan 1990 - Nov 2024)
 
 ![image](https://github.com/user-attachments/assets/145919e8-dc83-424f-a258-9c2927e85da7)
 
@@ -74,18 +74,20 @@ We looked at the differenced coffee price data. The optimal alpha value was foun
 The ridge regression performs better in terms of MSE, but when looking at the results when compared to the simplicity of generating them, the ARDL(1,1) model performs best as it does not need to tranform data beyond taking the first difference. 
 
 ### Result Tables
-| Models  | ARMA(1,1) | GARCH(1,1) | ARDL(1,1) | | | |
+| Models  | ARMA(1,1) | GARCH(1,1) | ARDL(1,1) | KNN | Random Forest | Ridge |
 |---------|----------|-----------|----------|---|---|---|
-| **AIC** | -546.940 | -533.7 | -789.4 | | | |
-| **BIC** | -531.696 | -526.1 | -628.3 | | | |
-| **Test MSE** | 0.3708 | 0.3971 | 0.0538 | | | |
-| **Test MAE** | 0.4572 | 0.4713 | 0.2048 | | | |
-| **R-Squared** | 0.4619 | 0.1632 | 0.1099 | | | |
+| **AIC** | -546.940 | -533.7 | -789.4 | -5.903 |  | |
+| **BIC** | -531.696 | -526.1 | -628.3 | 30.56 | | |
+| **Test MSE** | 0.3708 | 0.3971 | 0.0538 | 0.6522 | | |
+| **Test MAE** | 0.4572 | 0.4713 | 0.2048 | 0.6580 | | |
+| **R-Squared** | 0.4619 | 0.1632 | 0.1099 | -1.349 | | |
 
 
-# Limitations
+# Limitations and Extensions
 Since the top 5 coffee exporting countries have more volatile currencies when compared to the USD, there are rapid changes to the values which may undermine its effect on trade between these countries. This may reflect in a muted effect in the various models used. The Sentiment Ratio data and the import data for the top coffee importing countries is not as helpful as it could have been if we had gathered it on a monthly basis, considering that we are trying to predict coffee prices on a monthly basis. 
-The Data itself is monthly, which means that particularly for stock prices, it might be helpful to have more frequent data. Additionally, our desire to forecast years into the future gives us some instability given the inherent volatility of the stock market, meaning that we could find much higher success if we picked a smaller prediction period. 
+The Data itself is monthly, which means that particularly for stock prices, it might be helpful to have more frequent data. Additionally, our desire to forecast years into the future gives us some instability given the inherent volatility of the stock market, meaning that we could find much higher success if we picked a smaller prediction period.
+For the weather data, we only get weather information from the top 5 coffee exporting countries. We don't consider how global weather patterns might affect global supply chains.
+We considered measures of poltical stability, but it was difficult to get monthly data for that. With that information we could possibly look at how geopolitical factors might drive global coffee prices.
 
 
 # Declaration of Work
