@@ -7,7 +7,7 @@
 The goal of this project is to predict the monthly price of Coffee futures at the Chicago Stock exchange, using data from 1990 to the present day. Specifically, we want to predict the price of coffee futures for a range of dates. We will use several different Machine Learning models and compare their results. 
 # Data Sources & Collection 
 ## Exchange Rates
-The exchange rates data was taken from the IMF database. It is measured as the value of the foreign currencies for 1 USD. The data was downloaded from the website and placed into the `raw_data` folder. I also renamed the files to make extracting easier, as they were all downloaded with the exact same name. Since the raw data from the IMF is formatted in a premade table, the `xr_clean_data.py` code is used to put the data in a format that is easily read.
+The data for the exchange rates of the top 5 coffee exporting countries was taken from the IMF database. It is measured as the value of the foreign currencies for 1 USD. The data was downloaded from the website and placed into the `raw_data` folder. I also renamed the files to make extracting easier, as they were all downloaded with the exact same name. Since the raw data from the IMF is formatted in a premade table, the `xr_clean_data.py` code is used to put the data in a format that is easily read.
 
 ## Commodity Prices
 
@@ -24,6 +24,7 @@ The sentiment ratio data is from the Nexis Uni search function. We divided the a
 EACH PERSON FILL IN WHAT THE LIMITATIONS OF YOUR DATA ARE
 
 ## Exchange Rates
+Since the top 5 coffee exporting countries have more volatile currencies when compared to the USD, there are rapid changes to the values which may undermine its effect on trade between these countries. This may reflect in a muted effect in the various models used.
 
 ## Commodity Prices
 
@@ -55,6 +56,7 @@ DESCRIBE YOUR MODEL RESULTS
 ## Matias
 
 ## Nick
+When looking at the various models used within the linear regression format, there 
 | Models  | ARMA(1,1) | GARCH(1,1) | ARDL(1,1) |
 |---------|----------|-----------|----------|
 | **AIC** | -546.940 | -533.7 | -789.4 |
