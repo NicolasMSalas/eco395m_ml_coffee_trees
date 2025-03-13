@@ -61,9 +61,14 @@ When looking at the various models used within the linear regression format, the
 When comparing the three models, we can see that the ARDL model has the lowest AIC, BIC, and Test MSE. This is most likely due to the inclusion of other features that might help explain the price changes beyond changes in the previous coffee prices. However, there is potential overfitting when including the large selection of features, even when they have been reduced to fit better. There are also other forms of GARCH that take the conditional means and other parameters into consideration when building the model.
 
 ## Ridge Regression
-We looked at the differenced coffee price data. I built lagged features from all available numeric columns and then used Ridge regression to fit those features. The optimal alpha value was found to be 100, which yielded an RMSE of about 0.095 on the test set and an R² of about 0.29. The model outperformed trivial baselines that produced RMSE values around 0.115, but didn't achieve exceptional accuracy. Overall, the model succeeded in extracting meaningful signals from the lagged features.
+![output6](https://github.com/user-attachments/assets/18246c86-c023-4767-a92d-20d5fd994975)
 
-Coffee's differenced values are likely correlated strongly with each other (and other variables), so Ridge regression was probably beneficial here since the penalty reduces random noise without sacrificing the more stable relationships, resulting in a more robust model.
+We looked at the differenced coffee price data. We built lagged features from all available numeric columns and then used Ridge regression to fit those features. The optimal alpha value was found to be 100, which yielded an RMSE of about 0.095 on the test set and an R² of about 0.29. The model outperformed trivial baselines that produced RMSE values around 0.115, but didn't achieve exceptional accuracy. Overall, the model succeeded in extracting meaningful signals from the lagged features.
+
+We utilized a differenced feature set and employed temporal_train_test_split to preserve chronological order. We evaluated alpha values [0.01, 0.1, 1, 10, 100] and determined alpha=100 produced optimal results.
+The final dataset dimensions were: train shape: (328, 150), (328,); test shape: (78, 150), (78,). Our best MSE was 0.0090, outperforming the baselines (predict=0 => MSE=0.0132, predict last differenced => MSE=0.0131). We also achieved MAE=0.0727 and R²=0.2922, confirming that while the model explains a meaningful portion of variance, significant unmodeled noise remains.
+![image](https://github.com/user-attachments/assets/35e23df2-fdb3-4f64-af8d-d5298d1d24c5)
+
 
 ## Talk about which model was the "Winner" 
 
