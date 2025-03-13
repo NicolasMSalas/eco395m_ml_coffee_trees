@@ -61,7 +61,8 @@ Traditional Random Forest regressors are not inherently designed for time series
 
 The model forecasts the differenced series. To convert these forecasts back to level forecasts, we perform a cumulative sum of the predicted differences and add the last observed Coffee price from the training period. We do the same with the test set differences to obtain actual levels, then compute the Mean Squared Error on these level forecasts. The Mean Squared Error on Level Predictions: '0.40627'. In terms of the RMSE value, on average our model’s predictions are off by around $0.64 per pound.
 
-![image](https://github.com/user-attachments/assets/376c1f70-85f5-4226-8179-da58ffa56cc3)
+![image](https://github.com/user-attachments/assets/bc671c3c-4260-40b6-a6a3-ae5db69f4130)
+
 
 ## Ridge Regression
 We chose ridge regression because it handles multicollinearity really well and prevents overfitting with time series data that includes multiple correlated features (exchange rates, commodity prices, weather conditions...). Ridge regression is a linear model which penalizes large coefficients. The penalty shrinks large weights, which helps reduce variance in predictions. It's especially useful for dealing with noisy and highly correlated data. We're dealing with a lot of features and I wanted a straightforward way to incorporate them all without inflating the model parameters.
@@ -76,11 +77,11 @@ The ridge regression performs better in terms of MSE, but when looking at the re
 ### Result Tables
 | Models  | ARMA(1,1) | GARCH(1,1) | ARDL(1,1) | KNN | Random Forest | Ridge |
 |---------|----------|-----------|----------|---|---|---|
-| **AIC** | -546.940 | -533.7 | -789.4 | -5.903 |  | |
-| **BIC** | -531.696 | -526.1 | -628.3 | 30.56 | | |
-| **Test MSE** | 0.3708 | 0.3971 | 0.0538 | 0.6522 | | |
-| **Test MAE** | 0.4572 | 0.4713 | 0.2048 | 0.6580 | | |
-| **R-Squared** | 0.4619 | 0.1632 | 0.1099 | -1.349 | | |
+| **AIC** | -546.940 | -533.7 | -789.4 | -5.903 | -196.945 | |
+| **BIC** | -531.696 | -526.1 | -628.3 | 30.56 | -143.467 | |
+| **Test MSE** | 0.3708 | 0.3971 | 0.0538 | 0.6522 | 0.0568 | |
+| **Test MAE** | 0.4572 | 0.4713 | 0.2048 | 0.6580 | 0.1947 | |
+| **R-Squared** | 0.4619 | 0.1632 | 0.1099 | -1.349 | 0.7955 | |
 
 
 # Limitations and Extensions
