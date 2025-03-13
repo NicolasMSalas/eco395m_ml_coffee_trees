@@ -56,7 +56,14 @@ DESCRIBE YOUR MODEL RESULTS
 ## Matias
 
 ## Nick
-When looking at the various models used within the linear regression format, there 
+When looking at the various models used within the linear regression format, the following models are created.
+
+![image](https://github.com/user-attachments/assets/85e2c36d-21e7-4157-adf8-96956614b407)
+
+![image](https://github.com/user-attachments/assets/010b9ffc-0987-4aa6-ad55-a4d101b36854)
+
+![image](https://github.com/user-attachments/assets/7100a325-e1c3-4aea-b7cd-c16e38a80e2b)
+
 | Models  | ARMA(1,1) | GARCH(1,1) | ARDL(1,1) |
 |---------|----------|-----------|----------|
 | **AIC** | -546.940 | -533.7 | -789.4 |
