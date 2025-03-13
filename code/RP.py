@@ -45,9 +45,9 @@ test_mse = mean_squared_error(y_test,best_model.predict(X_test))
 print("Best Degree: ", best_degree)
 print("Train MSE: ", train_mse)
 print("Test MSE: ", test_mse)
-coef=pd.DataFrame({"variable": X_train.columns,
+'''coef=pd.DataFrame({"variable": X_train.columns,
 	"coefficient":coefficients})
-print("Best Model Coefficients: \n",coef)
+print("Best Model Coefficients: \n",coef)'''
 
 
 
