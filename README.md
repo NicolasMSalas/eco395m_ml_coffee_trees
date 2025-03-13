@@ -65,7 +65,7 @@ When comparing the three models, we can see that the ARDL model has the lowest A
 ## Ridge Regression
 ![output6](https://github.com/user-attachments/assets/18246c86-c023-4767-a92d-20d5fd994975)
 
-We looked at the differenced coffee price data. The optimal alpha value was found to be 100, and our best MSE was 0.0090, outperforming the trivial baselines (predict=0 => MSE=0.0132, predict last differenced => MSE=0.0131). Overall, the model succeeded in extracting meaningful signals.
+We looked at the differenced coffee price data. The optimal alpha value was found to be 100, and our best MSE was 0.0090. Overall, the model succeeded in extracting meaningful signals.
 
 ## Talk about which model was the "Winner" 
 The ridge regression performs better in terms of MSE, but when looking at the results when compared to the simplicity of generating them, the ARDL(1,1) model performs best as it does not need to tranform data beyond taking the first difference. 
