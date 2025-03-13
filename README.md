@@ -37,7 +37,7 @@ The Sentiment Ratio data and the import data for the top coffee importing countr
 # Models
 DESCRIBE THE MODEL YOU CHOSE, AND WHY YOU CHOSE IT
 ## Vighnesh
-
+We fit a Time Series KNN Model. Rather than `train_test_split`, we consider `temporal_train_test_split`, which preserves the order of the data. We used `Standard Scalar` to scale the explanatory variables as KNN is a distance-based model. Through `GridSearchCV`, we got optimal k=5, and `weights = "distance"`, which indicates that this would be a weighted KNN model. 
 ## Matias
 
 ## Nick
