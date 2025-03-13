@@ -15,7 +15,7 @@ Commodity prices came from a dataset issued by the IMF. We focused on finding th
 ## Futures Closing Prices
 We also wanted to track the prices of coffee in the futures contract market so we grabbed a dataset from TradingView that contained the average closing price of a coffee futures contract on a month by month basis dating back to 1990. 
 
-## Weather Data
+## [Weather Data](https://open-meteo.com/en/docs/historical-weather-api)
 The weather data was extracted from Open-Meteo's Historical Weather API. We extract information for the top 5 coffee exporting nations, namely, Brazil, Vietnam, Colombia, Indonesia, and Honduras. This is because weather patterns would drive supply-side price changes. The code for extracting the information is in `code/extract_weather_b_v_c.py` and `code/extract_weather_indonesia_honduras.py`. The reason this is in two separate files is due to limitation of API calls. The data from these files are stored in the `raw_data` folder. We clean this data using `code/weather_data_cleaning.ipynb`. The cleaned data files are stored in the `clean_data` folder.
 
 ## News Sentiment
