@@ -65,8 +65,7 @@ When comparing the three models, we can see that the ARDL model has the lowest A
 ## Ridge Regression
 ![output6](https://github.com/user-attachments/assets/18246c86-c023-4767-a92d-20d5fd994975)
 
-We looked at the differenced coffee price data. We built lagged features from all available numeric columns and then used Ridge regression to fit those features. The optimal alpha value was found to be 100. The final dataset dimensions were: train shape: (328, 150), (328,); test shape: (78, 150), (78,). Our best MSE was 0.0090, outperforming the trivial baselines (predict=0 => MSE=0.0132, predict last differenced => MSE=0.0131). We also achieved MAE=0.0727 and R²=0.2922. Overall, the model succeeded in extracting meaningful signals from the lagged features.
-
+We looked at the differenced coffee price data. The optimal alpha value was found to be 100, and our best MSE was 0.0090, outperforming the trivial baselines (predict=0 => MSE=0.0132, predict last differenced => MSE=0.0131). We also achieved MAE=0.0727 and R²=0.2922. Overall, the model succeeded in extracting meaningful signals.
 
 ## Talk about which model was the "Winner" 
 
