@@ -11,7 +11,7 @@ file_path = os.path.dirname(os.path.abspath("__file__"))
 csv_path = os.path.join(file_path, 'clean_data', 'main_df_clean.csv')
 
 df= pd.read_csv(csv_path)
-df["Date"] = pd.to_datetime(df["Date"], errors="coerce", format="%Y/%m")
+df["Date"] = pd.to_datetime(df["Date"], errors="coerce", format="%m/%Y")
 df["Date"] = pd.PeriodIndex(df["Date"], freq="M")
 before=df[df["Date"].dt.year < 2018]
 after=df[df["Date"].dt.year >=2018]
