@@ -67,7 +67,6 @@ We looked at the differenced coffee price data. We built lagged features from al
 
 We utilized a differenced feature set and employed temporal_train_test_split to preserve chronological order. We evaluated alpha values [0.01, 0.1, 1, 10, 100] and determined alpha=100 produced optimal results.
 The final dataset dimensions were: train shape: (328, 150), (328,); test shape: (78, 150), (78,). Our best MSE was 0.0090, outperforming the baselines (predict=0 => MSE=0.0132, predict last differenced => MSE=0.0131). We also achieved MAE=0.0727 and R²=0.2922, confirming that while the model explains a meaningful portion of variance, significant unmodeled noise remains.
-![image](https://github.com/user-attachments/assets/35e23df2-fdb3-4f64-af8d-d5298d1d24c5)
 
 
 ## Talk about which model was the "Winner" 
