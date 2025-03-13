@@ -59,7 +59,7 @@ When comparing the three models, we can see that the ARDL model has the lowest A
 ## Random Forest
 Traditional Random Forest regressors are not inherently designed for time series seasonality, trends, or autocorrelation. However we wanted to see how well a random forest model could predict coffee prices. Random Forest is an ensemble learning method that combines multiple decision trees. Each tree is trained on a bootstrap sample (i.e., a random subset) of the training data, and the final prediction is typically the average of all the individual trees’ predictions.
 
-The model forecasts the differenced series. To convert these forecasts back to level forecasts, we perform a cumulative sum of the predicted differences and add the last observed Coffee price from the training period. We do the same with the test set differences to obtain actual levels, then compute the Mean Squared Error on these level forecasts. The Mean Squared Error on Level Predictions: '0.40627'. In terms of the RMSE value, on average our model’s predictions are off by around $0.64 per pound.
+The model forecasts the differenced series. To convert these forecasts back to level forecasts, we perform a cumulative sum of the predicted differences and add the last observed Coffee price from the training period. We do the same with the test set differences to obtain actual levels, then compute the Mean Squared Error on these level forecasts. The Mean Squared Error on Level Predictions: '0.0568'. In terms of the RMSE value, on average our model’s predictions are off by around $0.24 per pound.
 
 ![image](https://github.com/user-attachments/assets/bc671c3c-4260-40b6-a6a3-ae5db69f4130)
 
