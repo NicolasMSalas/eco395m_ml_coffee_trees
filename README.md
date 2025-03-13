@@ -19,6 +19,9 @@ The weather data was extracted from Open-Meteo's Historical Weather API. We extr
 ## News Sentiment
 The sentiment ratio data is from the Nexis Uni search function. We divided the amount of "marked negative" (as determined by their news reviewing AI) articles about coffee in a finance and banking setting by the total number of articles about coffee in the topics of finance and banking from 1990 to 2025. The data was only yearly so we split the change for each number into 12 equal parts, one for each month, then divided the numbers by one another each month to get a "sentiment ratio."
 
+## Data Cleaning
+Before fitting any models we derive mutual information scores to reduce our number of features from 44 to 25. Mutual information essentially computes feature importance by computing how much of the variance of the target variable each feature explains.
+
 # Models
 ## KNN
 We fit a Time Series KNN Model. Rather than `train_test_split`, we consider `temporal_train_test_split`, which preserves the order of the data. We used `Standard Scalar` to scale the explanatory variables as KNN is a distance-based model. Through `GridSearchCV`, we got optimal k=5, and `weights = "distance"`, which indicates that this would be a weighted KNN model. 
@@ -34,7 +37,7 @@ We fit chose ridge regression because it handles multicollinearity really well a
 
 # Results
 ## KNN
-Test MSE is 0.5820.
+Test MSE is 0.5820. I do a mutual information score on the differenced variables as well and reduce it to 14 features mostly to allow faster computation with KNN.
 ![image](https://github.com/NicolasMSalas/eco395m_ml_coffee_trees/blob/03294979d6c1af072a34b631d7954f331553ddf9/images/knn.png)
 
 
@@ -71,6 +74,7 @@ Since the top 5 coffee exporting countries have more volatile currencies when co
 
 # Declaration of Work
 ### Vignesh Avadhanam
+Extracted and cleaned weather information. Fit optimal KNN model using GridSearchCV. 
 
 ### Chris Cain
 
