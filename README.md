@@ -26,6 +26,8 @@ Before fitting any models we derive mutual information scores to reduce our numb
 
 We had to take first differences of all our data to make it stationary, then we take the cumulative sum of the first differences to predict the actual price of coffee.
 
+## Global Coffee Prices (1990 - present)
+
 ![image](https://github.com/user-attachments/assets/145919e8-dc83-424f-a258-9c2927e85da7)
 
 # Models
