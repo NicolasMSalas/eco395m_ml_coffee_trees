@@ -55,6 +55,11 @@ DESCRIBE YOUR MODEL RESULTS
 ## Matias
 
 ## Nick
+| Models  | ARMA(1,1) | GARCH(1,1) | ARDL(1,1) |
+|---------|----------|-----------|----------|
+| **AIC** | ---      | ---       | ---      |
+| **BIC** | ---      | ---       | ---      |
+| **MSE** | ---      | ---       | ---      |
 
 ## Chris
 
