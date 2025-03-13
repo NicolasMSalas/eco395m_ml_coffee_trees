@@ -7,7 +7,8 @@
 The goal of this project is to predict the monthly price of Coffee futures at the Chicago Stock exchange, using data from 1990 to the present day. Specifically, we want to predict the price of coffee futures for a range of dates. We will use several different Machine Learning models and compare their results. 
 # Data Sources & Collection 
 ## Exchange Rates
-The exchange rates data was taken from the IMF database. It is measured as the value of the foreign currencies for 1 USD. The data was downloaded from the website and placed into the `raw_data` folder.
+The exchange rates data was taken from the IMF database. It is measured as the value of the foreign currencies for 1 USD. The data was downloaded from the website and placed into the `raw_data` folder. Since the raw data from the IMF is formatted in a premade table, the `xr_clean_data.py` code is used to put the data in a format that is easily read.
+
 ## Commodity Prices
 
 ## Futures Closing Prices
@@ -40,7 +41,7 @@ DESCRIBE THE MODEL YOU CHOSE, AND WHY YOU CHOSE IT
 ## Matias
 
 ## Nick
-
+I chose the linear regression as it allowed for the use of classic Time Series models. In this case, I am focusing on the ARMA(1,1), the GARCH(1,1) and the ARDL(1,1) models. I am using the ARMA model as the ACF/PACF graphs hint that the coffee data follows this model outline. When looking at a combination of the lowest AIC, BIC, and MSE, the ARMA(1,1) was best fit. The GARCH model was considered as it takes the conditiional heteroskedasticity of the values into account, which is used for financial time series models.
 
 ## Chris
 I chose ridge regression because it handles multicollinearity really well and prevents overfitting with time series data that includes multiple correlated features (exchange rates, commodity prices, weather conditions...). Ridge regression  penalizes large coefficients, which helps stabilize predictions. It's especially useful for dealing with noisy and highly correlated data.
