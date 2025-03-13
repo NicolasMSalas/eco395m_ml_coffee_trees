@@ -24,7 +24,9 @@ The sentiment ratio data is from the Nexis Uni search function. We divided the a
 ## Data Cleaning
 Before fitting any models we derive mutual information scores to reduce our number of features from 44 to 25. Mutual information essentially computes feature importance by computing how much of the variance of the target variable each feature explains.
 
-## We had to take first differences of all our data to make it stationary, then we take the cumulative sum of the first differences to predict the actual price of coffee.
+We had to take first differences of all our data to make it stationary, then we take the cumulative sum of the first differences to predict the actual price of coffee.
+
+![image](https://github.com/user-attachments/assets/145919e8-dc83-424f-a258-9c2927e85da7)
 
 # Models
 ## KNN
