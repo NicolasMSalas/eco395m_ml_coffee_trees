@@ -14,6 +14,7 @@ The exchange rates data was taken from the IMF database. It is measured as the v
 ## Futures Closing Prices
 
 ## Weather Data
+The weather data was extracted from Open-Meteo's Historical Weather API. We extract information for the top 5 coffee exporting nations, namely, Brazil, Vietnam, Colombia, Indonesia, and Honduras. This is because weather patterns would drive supply-side price changes. The code for extracting the information is in 'code/extract_weather_b_v_c.py' and `code/extract_weather_indonesia_honduras.py`. The reason this is in two separate files is due to limitation of API calls. The data from these files are stored in the `raw_data` folder. We clean this data using `code/weather_data_cleaning.ipynb`. The cleaned data files are stored in the `clean_data` folder.
 
 ## News Sentiment
 The sentiment ratio data is from the Nexis Uni search function. We divided the amount of "marked negative" (as determined by their news reviewing AI) articles about coffee in a finance and banking setting by the total number of articles about coffee in the topics of finance and banking from 1990 to 2025. The data was only yearly so we split the change for each number into 12 equal parts, one for each month, then divided the numbers by one another each month to get a "sentiment ratio."
@@ -36,7 +37,7 @@ The Sentiment Ratio data and the import data for the top coffee importing countr
 
 # Models
 DESCRIBE THE MODEL YOU CHOSE, AND WHY YOU CHOSE IT
-## Vighnesh
+## KNN
 We fit a Time Series KNN Model. Rather than `train_test_split`, we consider `temporal_train_test_split`, which preserves the order of the data. We used `Standard Scalar` to scale the explanatory variables as KNN is a distance-based model. Through `GridSearchCV`, we got optimal k=5, and `weights = "distance"`, which indicates that this would be a weighted KNN model. 
 ## Matias
 
