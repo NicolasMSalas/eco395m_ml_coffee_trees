@@ -19,30 +19,24 @@ The weather data was extracted from Open-Meteo's Historical Weather API. We extr
 ## News Sentiment
 The sentiment ratio data is from the Nexis Uni search function. We divided the amount of "marked negative" (as determined by their news reviewing AI) articles about coffee in a finance and banking setting by the total number of articles about coffee in the topics of finance and banking from 1990 to 2025. The data was only yearly so we split the change for each number into 12 equal parts, one for each month, then divided the numbers by one another each month to get a "sentiment ratio."
 
-
-
-
-
 # Models
-DESCRIBE THE MODEL YOU CHOSE, AND WHY YOU CHOSE IT
 ## KNN
 We fit a Time Series KNN Model. Rather than `train_test_split`, we consider `temporal_train_test_split`, which preserves the order of the data. We used `Standard Scalar` to scale the explanatory variables as KNN is a distance-based model. Through `GridSearchCV`, we got optimal k=5, and `weights = "distance"`, which indicates that this would be a weighted KNN model. 
 ## Matias
 
-## Nick
-I chose the linear regression as it allowed for the use of classic Time Series models. In this case, I am focusing on the ARMA(1,1), the GARCH(1,1) and the ARDL(1,1) models. I am using the ARMA model as the ACF/PACF graphs hint that the coffee data follows this model outline. The GARCH model was considered as it takes the conditiional heteroskedasticity of the values into account, which is used for financial time series models. The ARDL model is different when compared to the previous two as it takes other variables into consideration. The number of lags for each model was determined by looking for the combination that gave the smallest AIC, BIC, and MSE. Much like the KNN, the `temporal_train_test_split` was used to train and test the model while maintaining the order of the data.
+## Linear Regression
+We fit on linear regression as it allowed for the use of classic Time Series models. In this case, we are focusing on the ARMA(1,1), the GARCH(1,1) and the ARDL(1,1) models. The ARMA model is selected as the ACF/PACF graphs hint that the coffee data follows this model outline. The GARCH model was considered as it takes the conditiional heteroskedasticity of the values into account, which is used for financial time series models. The ARDL model is different when compared to the previous two as it takes other variables into consideration. The number of lags for each model was determined by looking for the combination that gave the smallest AIC, BIC, and MSE. Much like the KNN, the `temporal_train_test_split` was used to train and test the model while maintaining the order of the data.
 
 ## Chris
-I chose ridge regression because it handles multicollinearity really well and prevents overfitting with time series data that includes multiple correlated features (exchange rates, commodity prices, weather conditions...). Ridge regression is a linear model which penalizes large coefficients. The penalty shrinks large weights, which helps reduce variance in predictions. It's especially useful for dealing with noisy and highly correlated data. We're dealing with a lot of features and I wanted a straightforward way to incorporate them all without inflating the model parameters.
+We fit chose ridge regression because it handles multicollinearity really well and prevents overfitting with time series data that includes multiple correlated features (exchange rates, commodity prices, weather conditions...). Ridge regression is a linear model which penalizes large coefficients. The penalty shrinks large weights, which helps reduce variance in predictions. It's especially useful for dealing with noisy and highly correlated data. We're dealing with a lot of features and I wanted a straightforward way to incorporate them all without inflating the model parameters.
 
 
 # Results
-DESCRIBE YOUR MODEL RESULTS
 ## Vighnesh
 
 ## Matias
 
-## Nick
+## Linear Regression
 When looking at the various models used within the linear regression format, the following models are created.
 
 ![image](https://github.com/user-attachments/assets/85e2c36d-21e7-4157-adf8-96956614b407)
