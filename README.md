@@ -24,6 +24,8 @@ The sentiment ratio data is from the Nexis Uni search function. We divided the a
 ## Data Cleaning
 Before fitting any models we derive mutual information scores to reduce our number of features from 44 to 25. Mutual information essentially computes feature importance by computing how much of the variance of the target variable each feature explains.
 
+## We had to take first differences of all our data to make it stationary, then we take the cumulative sum of the first differences to predict the actual price of coffee.
+
 # Models
 ## KNN
 We fit a Time Series KNN Model. Rather than `train_test_split`, we consider `temporal_train_test_split`, which preserves the order of the data. We used `Standard Scalar` to scale the explanatory variables as KNN is a distance-based model. Through `GridSearchCV`, we got optimal k=11, and `weights = "distance"`, which indicates that this would be a weighted KNN model. 
@@ -67,11 +69,12 @@ When comparing the three models, we can see that the ARDL model has the lowest A
 
 We looked at the differenced coffee price data. The optimal alpha value was found to be 100, and our best MSE was 0.0090. Overall, the model succeeded in extracting meaningful signals.
 
-## Talk about which model was the "Winner" 
+## Which model was the "Winner" ?
 The ridge regression performs better in terms of MSE, but when looking at the results when compared to the simplicity of generating them, the ARDL(1,1) model performs best as it does not need to tranform data beyond taking the first difference. 
 
-# Limitations of the Data
+# Limitations
 Since the top 5 coffee exporting countries have more volatile currencies when compared to the USD, there are rapid changes to the values which may undermine its effect on trade between these countries. This may reflect in a muted effect in the various models used. The Sentiment Ratio data and the import data for the top coffee importing countries is not as helpful as it could have been if we had gathered it on a monthly basis, considering that we are trying to predict coffee prices on a monthly basis. 
+The Data itself is monthly, which means that particularly for stock prices, it might be helpful to have more frequent data. Additionally, our desire to forecast years into the future gives us some instability given the inherent volatility of the stock market, meaning that we could find much higher success if we picked a smaller prediction period. 
 
 
 # Declaration of Work
@@ -83,7 +86,7 @@ Extracted and cleaned weather information. Fit optimal KNN model using GridSearc
 ### Juan Guerra
 
 ### Benjamin Hinrichs
-
+Extracted and cleaned sentiment data, troubleshot on several models, organized readme, gathered info for requirement file
 ### Matias Ibarburu
 
 ### Nicolas Salas
