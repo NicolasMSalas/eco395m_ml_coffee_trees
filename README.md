@@ -35,7 +35,7 @@ We fit a Polynomial Regression model, using data before 2018 as the training set
 ## Linear Regression
 We fit on linear regression as it allowed for the use of classic Time Series models. In this case, we are focusing on the ARMA(1,1), the GARCH(1,1) and the ARDL(1,1) models. The ARMA model is selected as the ACF/PACF graphs hint that the coffee data follows this model outline. The GARCH model was considered as it takes the conditiional heteroskedasticity of the values into account, which is used for financial time series models. The ARDL model is different when compared to the previous two as it takes other variables into consideration. The number of lags for each model was determined by looking for the combination that gave the smallest AIC, BIC, and MSE. Much like the KNN, the `temporal_train_test_split` was used to train and test the model while maintaining the order of the data.
 
-## Ridge Regression
+## Random Forest
 Traditional Random Forest regressors are not inherently designed for time series seasonality, trends, or autocorrelation. However we wanted to see how well a random forest model could predict coffee prices. Random Forest is an ensemble learning method that combines multiple decision trees. Each tree is trained on a bootstrap sample (i.e., a random subset) of the training data, and the final prediction is typically the average of all the individual trees’ predictions.
 
 ## Ridge Regression
