@@ -35,6 +35,8 @@ We fit chose ridge regression because it handles multicollinearity really well a
 # Results
 ## KNN
 Test MSE is 0.5820.
+![image](https://github.com/NicolasMSalas/eco395m_ml_coffee_trees/blob/03294979d6c1af072a34b631d7954f331553ddf9/images/knn.png)
+
 
 ## Polynomial Regression
 We ran intervals of `GridSearchCV` , finding that the best degree was one. Therefore, we moved to linear regression. 
