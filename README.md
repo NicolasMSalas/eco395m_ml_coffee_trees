@@ -55,7 +55,7 @@ When looking at the various models used within the linear regression format, the
 | **BIC** | -531.696 | -526.1 | -628.3 |
 | **Test MSE** | 0.3708 | 0.3971 | 0.0538 |
 
-When comparing the three models, we can see that the ARDL model has the lowest AIC, BIC, and Test MSE. This is most likely due to the inclusion of other features that might help explain the price changes beyond changes in the previous coffee prices. However, there is potential overfitting when including the large selection of features, even when they have been reduced to fit better. 
+When comparing the three models, we can see that the ARDL model has the lowest AIC, BIC, and Test MSE. This is most likely due to the inclusion of other features that might help explain the price changes beyond changes in the previous coffee prices. However, there is potential overfitting when including the large selection of features, even when they have been reduced to fit better. There are also other forms of GARCH that take the conditional means and other parameters into consideration when building the model.
 
 ## Ridge Regression
 We looked at the differenced coffee price data. I built lagged features from all available numeric columns and then used Ridge regression to fit those features. The optimal alpha value was found to be 100, which yielded an RMSE of about 0.095 on the test set and an R² of about 0.29. The model outperformed trivial baselines that produced RMSE values around 0.115, but didn't achieve exceptional accuracy. Overall, the model succeeded in extracting meaningful signals from the lagged features.
