@@ -65,6 +65,14 @@ mi_scores_series = pd.Series(mi_scores, index=X.columns).sort_values(ascending=F
 non_zero_mi_scores = mi_scores_series[mi_scores_series > 0]
 X_filtered = X[non_zero_mi_scores.index]
 
+X_filtered = X_filtered.copy()
+X_filtered.loc[:, 'Date'] = merged_df['Date']
+
+X_filtered['Date'] = X_filtered['Date'].dt.strftime('%m/%Y')
+
+date_column = X_filtered.pop('Date')
+X_filtered.insert(0, 'Date', date_column)
+
 output_dir = os.path.join(csv_path, '..', 'clean_data')
 output_file = os.path.join(output_dir, "main_df_clean.csv")
 
