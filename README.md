@@ -80,11 +80,11 @@ The ridge regression performs better in terms of MSE, but when looking at the re
 ### Result Tables
 | Models  | ARMA(1,1) | GARCH(1,1) | ARDL(1,1) | KNN | Random Forest | Ridge |
 |---------|----------|-----------|----------|---|---|---|
-| **AIC** | -546.940 | -533.7 | -789.4 | -5.903 | -196.945 | |
-| **BIC** | -531.696 | -526.1 | -628.3 | 30.56 | -143.467 | |
-| **Test MSE** | 0.3708 | 0.3971 | 0.0538 | 0.6522 | 0.0568 | |
-| **Test MAE** | 0.4572 | 0.4713 | 0.2048 | 0.6580 | 0.1947 | |
-| **R-Squared** | 0.4619 | 0.1632 | 0.1099 | -1.349 | 0.7955 | |
+| **AIC** | -546.940 | -533.7 | -789.4 | -5.903 | -196.945 |-65.1932 |
+| **BIC** | -531.696 | -526.1 | -628.3 | 30.56 | -143.467 |290.6698 |
+| **Test MSE** | 0.3708 | 0.3971 | 0.0538 | 0.6522 | 0.0568 |0.0090 |
+| **Test MAE** | 0.4572 | 0.4713 | 0.2048 | 0.6580 | 0.1947 |0.0727 |
+| **R-Squared** | 0.4619 | 0.1632 | 0.1099 | -1.349 | 0.7955 |0.2922 |
 
 
 # Limitations and Extensions
@@ -99,6 +99,7 @@ We considered measures of poltical stability, but it was difficult to get monthl
 Extracted and cleaned weather information. Fit optimal KNN model using GridSearchCV. 
 
 ### Chris Cain
+Fit Ridge Regression model, gathered (unused) data on coffee imports from the top 5 coffee importing countries.
 
 ### Juan Guerra
 Cleaned/pulled commodities data, and futures data. Created one data frame with all merged features. Worked on the random forest model code.
