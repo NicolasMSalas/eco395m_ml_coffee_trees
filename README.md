@@ -45,7 +45,7 @@ We fit a Time Series KNN Model. Rather than `train_test_split`, we consider `tem
 I chose the linear regression as it allowed for the use of classic Time Series models. In this case, I am focusing on the ARMA(1,1), the GARCH(1,1) and the ARDL(1,1) models. I am using the ARMA model as the ACF/PACF graphs hint that the coffee data follows this model outline. The GARCH model was considered as it takes the conditiional heteroskedasticity of the values into account, which is used for financial time series models. The ARDL model is different when compared to the previous two as it takes other variables into consideration. The number of lags for each model was determined by looking for the combination that gave the smallest AIC, BIC, and MSE. Much like the KNN, the `temporal_train_test_split` was used to train and test the model while maintaining the order of the data.
 
 ## Chris
-I chose ridge regression because it handles multicollinearity really well and prevents overfitting with time series data that includes multiple correlated features (exchange rates, commodity prices, weather conditions...). Ridge regression  penalizes large coefficients, which helps stabilize predictions. It's especially useful for dealing with noisy and highly correlated data.
+I chose ridge regression because it handles multicollinearity really well and prevents overfitting with time series data that includes multiple correlated features (exchange rates, commodity prices, weather conditions...). Ridge regression is a linear model which penalizes large coefficients. The penalty shrinks large weights, which helps reduce variance in predictions. It's especially useful for dealing with noisy and highly correlated data. We're dealing with a lot of features and I wanted a straightforward way to incorporate them all without inflating the model parameters.
 
 
 # Results
@@ -62,6 +62,10 @@ DESCRIBE YOUR MODEL RESULTS
 | **MSE** | ---      | ---       | ---      |
 
 ## Chris
+We looked at the differenced coffee price data. I built lagged features from all available numeric columns and then used Ridge regression to fit those features. The optimal alpha value was found to be 100, which yielded an RMSE of about 0.095 on the test set and an R² of about 0.29. The model outperformed trivial baselines that produced RMSE values around 0.115, but didn't achieve exceptional accuracy. Overall, the model succeeded in extracting meaningful signals from the lagged features.
+
+Coffee's differenced values are likely correlated strongly with each other (and other variables), so Ridge regression was probably beneficial here since the penalty reduces random noise without sacrificing the more stable relationships, resulting in a more robust model.
+
 
 ## Talk about which model was the "Winner" 
 
