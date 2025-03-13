@@ -63,12 +63,6 @@ When looking at the various models used within the linear regression format, the
 
 ![image](https://github.com/user-attachments/assets/7100a325-e1c3-4aea-b7cd-c16e38a80e2b)
 
-| Models  | ARMA(1,1) | GARCH(1,1) | ARDL(1,1) |
-|---------|----------|-----------|----------|
-| **AIC** | -546.940 | -533.7 | -789.4 |
-| **BIC** | -531.696 | -526.1 | -628.3 |
-| **Test MSE** | 0.3708 | 0.3971 | 0.0538 |
-
 When comparing the three models, we can see that the ARDL model has the lowest AIC, BIC, and Test MSE. This is most likely due to the inclusion of other features that might help explain the price changes beyond changes in the previous coffee prices. However, there is potential overfitting when including the large selection of features, even when they have been reduced to fit better. There are also other forms of GARCH that take the conditional means and other parameters into consideration when building the model.
 
 ## Random Forest
@@ -83,6 +77,16 @@ We looked at the differenced coffee price data. The optimal alpha value was foun
 
 ## Which model was the "Winner" ?
 The ridge regression performs better in terms of MSE, but when looking at the results when compared to the simplicity of generating them, the ARDL(1,1) model performs best as it does not need to tranform data beyond taking the first difference. 
+
+### Result Tables
+| Models  | ARMA(1,1) | GARCH(1,1) | ARDL(1,1) | | | |
+|---------|----------|-----------|----------|---|---|---|
+| **AIC** | -546.940 | -533.7 | -789.4 | | | |
+| **BIC** | -531.696 | -526.1 | -628.3 | | | |
+| **Test MSE** | 0.3708 | 0.3971 | 0.0538 | | | |
+| **Test MAE** | 0.4572 | 0.3971 | 0.0538 | | | |
+| **R-Squared** | 0.4619 | 0.1632 | 0.1099 | | | |
+
 
 # Limitations
 Since the top 5 coffee exporting countries have more volatile currencies when compared to the USD, there are rapid changes to the values which may undermine its effect on trade between these countries. This may reflect in a muted effect in the various models used. The Sentiment Ratio data and the import data for the top coffee importing countries is not as helpful as it could have been if we had gathered it on a monthly basis, considering that we are trying to predict coffee prices on a monthly basis. 
