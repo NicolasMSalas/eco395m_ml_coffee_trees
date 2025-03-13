@@ -4,7 +4,7 @@
 
 
 # Introduction
-The goal of this project is to predict the monthly price of Coffee futures at the Chicago Stock exchange, using data from 1990 to the present day. Specifically, we want to predict the price of coffee futures for a range of dates. We will use several different Machine Learning models and compare their results. 
+The goal of this project is to predict the global monthly price of Coffee using data from 1990 to the present day. Specifically, we are training various models based on an 80-20 train-test split to predict the price of the last 20% of the prices based on the first 80%. We will use several different Machine Learning models and compare their results. 
 # Data Sources & Collection 
 ## Exchange Rates
 The data for the exchange rates of the top 5 coffee exporting countries was taken from the IMF database. It is measured as the value of the foreign currencies for 1 USD. The data was downloaded from the website and placed into the `raw_data` folder. I also renamed the files to make extracting easier, as they were all downloaded with the exact same name. Since the raw data from the IMF is formatted in a premade table, the `xr_clean_data.py` code is used to put the data in a format that is easily read.
@@ -20,20 +20,7 @@ The weather data was extracted from Open-Meteo's Historical Weather API. We extr
 The sentiment ratio data is from the Nexis Uni search function. We divided the amount of "marked negative" (as determined by their news reviewing AI) articles about coffee in a finance and banking setting by the total number of articles about coffee in the topics of finance and banking from 1990 to 2025. The data was only yearly so we split the change for each number into 12 equal parts, one for each month, then divided the numbers by one another each month to get a "sentiment ratio."
 
 
-# Limitations of the Data
-EACH PERSON FILL IN WHAT THE LIMITATIONS OF YOUR DATA ARE
 
-## Exchange Rates
-Since the top 5 coffee exporting countries have more volatile currencies when compared to the USD, there are rapid changes to the values which may undermine its effect on trade between these countries. This may reflect in a muted effect in the various models used.
-
-## Commodity Prices
-
-## Futures Closing Prices
-
-## Weather Data
-
-## News Sentiment
-The Sentiment Ratio data and the import data for the top coffee importing countries is not as helpful as it could have been if we had gathered it on a monthly basis, considering that we are trying to predict coffee prices on a monthly basis. 
 
 
 # Models
@@ -81,6 +68,8 @@ Coffee's differenced values are likely correlated strongly with each other (and 
 ## Talk about which model was the "Winner" 
 
 
+# Limitations of the Data
+Since the top 5 coffee exporting countries have more volatile currencies when compared to the USD, there are rapid changes to the values which may undermine its effect on trade between these countries. This may reflect in a muted effect in the various models used. The Sentiment Ratio data and the import data for the top coffee importing countries is not as helpful as it could have been if we had gathered it on a monthly basis, considering that we are trying to predict coffee prices on a monthly basis. 
 
 You’ll produce a README.md which will explain your problem, explain and present relevant analysis of your dataset, show the results of evaluating your models, detailing your modeling process and your final conclusion.
 
