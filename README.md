@@ -6,7 +6,7 @@
 # Introduction
 The goal of this project is to predict the global monthly price of Coffee using data from 1990 to the present day. Specifically, we are training various models based on an 80-20 train-test split to predict the price of the last 20% of the prices based on the first 80%. We will use several different Machine Learning models and compare their results. 
 # Data Sources & Collection 
-## Exchange Rates
+## [Exchange Rates](https://data.imf.org/regular.aspx?key=61545850)
 The data for the exchange rates of the top 5 coffee exporting countries was taken from the IMF database. It is measured as the value of the foreign currencies for 1 USD. The data was downloaded from the website and placed into the `raw_data` folder. I also renamed the files to make extracting easier, as they were all downloaded with the exact same name. Since the raw data from the IMF is formatted in a premade table, the `xr_clean_data.py` code is used to put the data in a format that is easily read.
 
 ## Commodity Prices
