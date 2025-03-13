@@ -24,7 +24,7 @@ The sentiment ratio data is from the Nexis Uni search function. We divided the a
 We fit a Time Series KNN Model. Rather than `train_test_split`, we consider `temporal_train_test_split`, which preserves the order of the data. We used `Standard Scalar` to scale the explanatory variables as KNN is a distance-based model. Through `GridSearchCV`, we got optimal k=5, and `weights = "distance"`, which indicates that this would be a weighted KNN model. 
 
 ## Polynomial Regression
-We fit a Polynomial Regression model, using data before 2018 as the training set and data during and after 2018 as the test set. We ran intervals of `GridSearchCV` , finding that the best degree was one. Therefore, we moved to linear regression. 
+We fit a Polynomial Regression model, using data before 2018 as the training set and data during and after 2018 as the test set. We did this to see if there were any non-linear relationships between coffee prices and any of the features.
 ## Linear Regression
 We fit on linear regression as it allowed for the use of classic Time Series models. In this case, we are focusing on the ARMA(1,1), the GARCH(1,1) and the ARDL(1,1) models. The ARMA model is selected as the ACF/PACF graphs hint that the coffee data follows this model outline. The GARCH model was considered as it takes the conditiional heteroskedasticity of the values into account, which is used for financial time series models. The ARDL model is different when compared to the previous two as it takes other variables into consideration. The number of lags for each model was determined by looking for the combination that gave the smallest AIC, BIC, and MSE. Much like the KNN, the `temporal_train_test_split` was used to train and test the model while maintaining the order of the data.
 
@@ -36,7 +36,7 @@ We fit chose ridge regression because it handles multicollinearity really well a
 ## KNN
 
 ## Polynomial Regression
-We tried to fit a polynomial regression
+We ran intervals of `GridSearchCV` , finding that the best degree was one. Therefore, we moved to linear regression. 
 ## Linear Regression
 When looking at the various models used within the linear regression format, the following models are created.
 
