@@ -84,7 +84,7 @@ The ridge regression performs better in terms of MSE, but when looking at the re
 | **AIC** | -546.940 | -533.7 | -789.4 | | | |
 | **BIC** | -531.696 | -526.1 | -628.3 | | | |
 | **Test MSE** | 0.3708 | 0.3971 | 0.0538 | | | |
-| **Test MAE** | 0.4572 | 0.3971 | 0.0538 | | | |
+| **Test MAE** | 0.4572 | 0.4713 | 0.2048 | | | |
 | **R-Squared** | 0.4619 | 0.1632 | 0.1099 | | | |
 
 
