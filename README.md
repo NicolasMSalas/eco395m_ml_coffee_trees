@@ -100,8 +100,9 @@ Extracted and cleaned weather information. Fit optimal KNN model using GridSearc
 
 ### Benjamin Hinrichs
 Extracted and cleaned sentiment data, troubleshot on several models, organized readme, gathered info for requirement file
+
 ### Matias Ibarburu
 Polynomial Regression, Cleaning and organization of the data folders. Gathered GDP data that was not used.
 
 ### Nicolas Salas
-
+Extracted and cleaned Exchange Rate data. Fit optimal Linear Regression Predictions on Time Series Models.
