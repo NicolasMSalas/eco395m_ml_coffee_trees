@@ -99,17 +99,17 @@ Must use relative paths
 Data should be included in the repository if the dataset is small enough, otherwise, instructions for downloading the datasets and placing them in the right locations are required
 Your code should have as few entry points as reasonable. I.e. rather than requiring data_cleaning_step_1.py, data_cleaning_step_2.py, etc., to be run, have simply data_cleaning.py
 
-#Declaration of Work
+# Declaration of Work
 
-Vignesh Avadhanam- 
+### Vignesh Avadhanam
 
-Chris Cain- 
+### Chris Cain
 
-Juan Guerra-
+### Juan Guerra
 
-Benjamin Hinrichs- 
+### Benjamin Hinrichs
 
-Matias Ibarburu- 
+### Matias Ibarburu
 
-Nicolas Salas- 
+### Nicolas Salas
 
