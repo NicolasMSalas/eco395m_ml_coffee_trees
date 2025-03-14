@@ -9,10 +9,10 @@ The goal of this project is to predict the global monthly price of Coffee using 
 ## [Exchange Rates](https://data.imf.org/regular.aspx?key=61545850)
 The data for the exchange rates of the top 5 coffee exporting countries was taken from the IMF database. It is measured as the value of the foreign currencies for 1 USD. The data was downloaded from the website and placed into the `raw_data` folder. I also renamed the files to make extracting easier, as they were all downloaded with the exact same name. Since the raw data from the IMF is formatted in a premade table, the `xr_clean_data.py` code is used to put the data in a format that is easily read.
 
-## Commodity Prices
+## [Commodity Prices](https://data.imf.org/?sk=471dddf8-d8a7-499a-81ba-5b332c01f8b9)
 Commodity prices came from a dataset issued by the IMF. We focused on finding the global price of coffee as well as 2 complements (milk, sugar) and 1 substitue (tea). Some of the prices for these commodities vary based on different weights and volumes so they had to be normalized to (USD/pound).
 
-## Futures Closing Prices
+## [Futures Closing Prices](https://www.tradingview.com/symbols/ICEUS-KC1!/)
 We also wanted to track the prices of coffee in the futures contract market so we grabbed a dataset from TradingView that contained the average closing price of a coffee futures contract on a month by month basis dating back to 1990. 
 
 ## [Weather Data](https://open-meteo.com/en/docs/historical-weather-api)
