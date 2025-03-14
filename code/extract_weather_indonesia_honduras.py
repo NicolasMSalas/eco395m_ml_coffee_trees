@@ -3,23 +3,18 @@ import requests_cache
 import pandas as pd
 from retry_requests import retry
 
-
-# Setup the Open-Meteo API client with cache and retry on error
 cache_session = requests_cache.CachedSession('.cache', expire_after = 3600)
 retry_session = retry(cache_session, retries = 5, backoff_factor = 0.2)
 openmeteo = openmeteo_requests.Client(session = retry_session)
 
-# Define the list of locations with latitude and longitude
 locations = [
     {"name": "Indonesia", "latitude": -3.3194, "longitude": 103.9144},
     {"name": "Honduras", "latitude": 14.4490, "longitude": -87.6482}
 ]
 
-# Loop over each location to fetch weather data and write to a separate CSV file
 for location in locations:
     print(f"Fetching data for {location['name']}...")
     
-    # Make the request for the current location
     url = "https://archive-api.open-meteo.com/v1/archive"
     params = {
         "latitude": location["latitude"],
@@ -30,7 +25,6 @@ for location in locations:
     }
     responses = openmeteo.weather_api(url, params=params)
     
-    # Process first location's data
     response = responses[0]
     
     daily = response.Daily()
@@ -55,7 +49,6 @@ for location in locations:
     daily_shortwave_radiation_sum = daily.Variables(18).ValuesAsNumpy()
     daily_et0_fao_evapotranspiration = daily.Variables(19).ValuesAsNumpy()
 
-    # Create a dictionary to hold the data
     daily_data = {
         "location": location["name"],
         "date": pd.date_range(
@@ -86,7 +79,6 @@ for location in locations:
         "et0_fao_evapotranspiration": daily_et0_fao_evapotranspiration
     }
 
-    # Convert the data to a DataFrame
     daily_dataframe = pd.DataFrame(data=daily_data)
     
     file_path = f"data/weather_data_{location['name']}.csv"
