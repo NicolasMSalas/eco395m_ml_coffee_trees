@@ -32,11 +32,11 @@ We had to take first differences of all our data to make it stationary, then we 
 
 # Models and Results
 ## KNN
-We fit a Time Series KNN Model. Rather than `train_test_split`, we consider `temporal_train_test_split`, which preserves the order of the data. We used `Standard Scalar` to scale the explanatory variables as KNN is a distance-based model. Through `GridSearchCV`, we got optimal `k=9`, and `weights = "distance"`, which indicates that this would be a weighted KNN model. 
+We fit a Time Series KNN Model. Rather than `train_test_split`, we consider `temporal_train_test_split`, which preserves the order of the data. We used `Standard Scalar` to scale the explanatory variables as KNN is a distance-based model. Through `GridSearchCV`, we got optimal `k=11`, and `weights = "distance"`, which indicates that this would be a weighted KNN model. 
 
-Test MSE is 0.6522. I do a mutual information score on the differenced variables as well and reduce it to 14 features mostly to allow faster computation with KNN.
+Test MSE is 0.5820. I do a mutual information score on the differenced variables as well and reduce it to 14 features mostly to allow faster computation with KNN.
 
-Train MSE is 0 and the $R^{2}$ is -1.349, which indicates that the KNN extremely overfits the data with the 14 features. This is possibly due to the Euclidean distance not being able to capture the idea that some features are first-differenced and some are not. So when a stationary variable has a larger scaling it may be more prone to overfitting. Additionally, problems could arise while converting back from first differences to actual prices. Therefore, the results here underscore the need for less complex and computationally involved models.
+Train MSE is 0 and the $R^{2}$ is -1.096, which indicates that the KNN extremely overfits the data with the 14 features. This is possibly due to the Euclidean distance not being able to capture the idea that some features are first-differenced and some are not. So when a stationary variable has a larger scaling it may be more prone to overfitting. Additionally, problems could arise while converting back from first differences to actual prices. Therefore, the results here underscore the need for less complex and computationally involved models.
 ![image](https://github.com/NicolasMSalas/eco395m_ml_coffee_trees/blob/03294979d6c1af072a34b631d7954f331553ddf9/images/knn.png)
 
 
@@ -79,11 +79,11 @@ The ridge regression performs better in terms of MSE, but when looking at the re
 ### Result Tables
 | Models  | ARMA(1,1) | GARCH(1,1) | ARDL(1,1) | KNN | Random Forest | Ridge |
 |---------|----------|-----------|----------|---|---|---|
-| **AIC** | -546.940 | -533.7 | -789.4 | -5.903 | -196.945 |-65.1932 |
-| **BIC** | -531.696 | -526.1 | -628.3 | 30.56 | -143.467 |290.6698 |
-| **Test MSE** | 0.3708 | 0.3971 | 0.0538 | 0.6522 | 0.0568 |0.0090 |
-| **Test MAE** | 0.4572 | 0.4713 | 0.2048 | 0.6580 | 0.1947 |0.0727 |
-| **R-Squared** | 0.4619 | 0.1632 | 0.1099 | -1.349 | 0.7955 |0.2922 |
+| **AIC** | -546.940 | -533.7 | -789.4 | -17.47 | -196.945 |-65.1932 |
+| **BIC** | -531.696 | -526.1 | -628.3 | 16.56 | -143.467 |290.6698 |
+| **Test MSE** | 0.3708 | 0.3971 | 0.0538 | 0.5820 | 0.0568 |0.0090 |
+| **Test MAE** | 0.4572 | 0.4713 | 0.2048 | 0.5933 | 0.1947 |0.0727 |
+| **R-Squared** | 0.4619 | 0.1632 | 0.1099 | -1.096 | 0.7955 |0.2922 |
 
 
 # Limitations  
