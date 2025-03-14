@@ -16,7 +16,7 @@ Commodity prices came from a dataset issued by the IMF. We focused on finding th
 We also wanted to track the prices of coffee in the futures contract market so we grabbed a dataset from TradingView that contained the average closing price of a coffee futures contract on a month by month basis dating back to 1990. 
 
 ## [Weather Data](https://open-meteo.com/en/docs/historical-weather-api)
-The weather data was extracted from Open-Meteo's Historical Weather API. We extract information for the top 5 coffee exporting nations, namely, Brazil, Vietnam, Colombia, Indonesia, and Honduras. This is because weather patterns would drive supply-side price changes. The code for extracting the information is in `code/extract_weather_b_v_c.py` and `code/extract_weather_indonesia_honduras.py`. The reason this is in two separate files is due to limitation of API calls. The data from these files are stored in the `raw_data` folder. We clean this data using `code/weather_data_cleaning.ipynb`. The cleaned data files are stored in the `clean_data` folder.
+The weather data was extracted from Open-Meteo's Historical Weather API. We extract information for the top 5 coffee exporting nations, namely, Brazil, Vietnam, Colombia, Indonesia, and Honduras. This is because weather patterns would drive supply-side price changes. The code for extracting the information is in `code/extract_weather_b_v_c.py` and `code/extract_weather_indonesia_honduras.py`. The reason this is in two separate files is due to limitation of API calls. The data from these files are stored in the `raw_data` folder. We clean this data using `code/weather_data_cleaning.ipynb`. The cleaned data files are stored in the `clean_data` folder. The features here include : temperature, rainfall, wind speed, wind gusts, daylight duration, sunshine duration, and evapotranspiration.
 
 ## News Sentiment
 The sentiment ratio data is from the Nexis Uni search function. We divided the amount of "marked negative" (as determined by their news reviewing AI) articles about coffee in a finance and banking setting by the total number of articles about coffee in the topics of finance and banking from 1990 to 2025. The data was only yearly so we split the change for each number into 12 equal parts, one for each month, then divided the numbers by one another each month to get a "sentiment ratio."
@@ -36,9 +36,6 @@ We fit a Time Series KNN Model. Rather than `train_test_split`, we consider `tem
 
 Test MSE is 0.5820. I do a mutual information score on the differenced variables as well and reduce it to 14 features mostly to allow faster computation with KNN.
 ![image](https://github.com/NicolasMSalas/eco395m_ml_coffee_trees/blob/03294979d6c1af072a34b631d7954f331553ddf9/images/knn.png)
-
-The mutual information score for the 14 features are given below.
-![image](https://github.com/NicolasMSalas/eco395m_ml_coffee_trees/blob/907f7a39fdea00886fa4598d6aabeee225dd294a/images/knn_mutual_info.png)
 
 
 ## Polynomial Regression
@@ -87,12 +84,15 @@ The ridge regression performs better in terms of MSE, but when looking at the re
 | **R-Squared** | 0.4619 | 0.1632 | 0.1099 | -1.349 | 0.7955 |0.2922 |
 
 
-# Limitations and Extensions
-Since the top 5 coffee exporting countries have more volatile currencies when compared to the USD, there are rapid changes to the values which may undermine its effect on trade between these countries. This may reflect in a muted effect in the various models used. The Sentiment Ratio data and the import data for the top coffee importing countries is not as helpful as it could have been if we had gathered it on a monthly basis, considering that we are trying to predict coffee prices on a monthly basis. 
-The Data itself is monthly, which means that particularly for stock prices, it might be helpful to have more frequent data. Additionally, our desire to forecast years into the future gives us some instability given the inherent volatility of the stock market, meaning that we could find much higher success if we picked a smaller prediction period.
-For the weather data, we only get weather information from the top 5 coffee exporting countries. We don't consider how global weather patterns might affect global supply chains.
-We considered measures of poltical stability, but it was difficult to get monthly data for that. With that information we could possibly look at how geopolitical factors might drive global coffee prices.
+# Limitations  
+1) Since the top 5 coffee exporting countries have more volatile currencies when compared to the USD, there are rapid changes to the values which may undermine its effect on trade between these countries. This may reflect in a muted effect in the various models used.
+2) The Sentiment Ratio data and the import data for the top coffee importing countries is not as helpful as it could have been if we had gathered it on a monthly basis, considering that we are trying to predict coffee prices on a monthly basis.  The Data itself is monthly, which means that particularly for stock prices, it might be helpful to have more frequent data. Additionally, our desire to forecast years into the future gives us some instability given the inherent volatility of the stock market, meaning that we could find much higher success if we picked a smaller prediction period.
+3) For the weather data, we only get weather information from the top 5 coffee exporting countries. We don't consider how global weather patterns might affect global supply chains.
 
+# Extensions
+1) We considered measures of poltical stability, but it was difficult to get monthly data for that. With that information we could possibly look at how geopolitical factors might drive global coffee prices.
+2) We don't focus too much on how demand-side factors might drive prices, so that would be an important factor that future work could consider.
+3) More advanced methods such as Neural Networks, like, Long Short-Term Memory (LSTM) might give more accurate predictions.
 
 # Declaration of Work
 ### Vignesh Avadhanam
