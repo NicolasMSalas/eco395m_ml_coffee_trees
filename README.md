@@ -18,7 +18,7 @@ We also wanted to track the prices of coffee in the futures contract market so w
 ## [Weather Data](https://open-meteo.com/en/docs/historical-weather-api)
 The weather data was extracted from Open-Meteo's Historical Weather API. We extract information for the top 5 coffee exporting nations, namely, Brazil, Vietnam, Colombia, Indonesia, and Honduras. This is because weather patterns would drive supply-side price changes. The code for extracting the information is in `code/extract_weather_b_v_c.py` and `code/extract_weather_indonesia_honduras.py`. The reason this is in two separate files is due to limitation of API calls. The data from these files are stored in the `raw_data` folder. We clean this data using `code/weather_data_cleaning.ipynb`. The cleaned data files are stored in the `clean_data` folder. The features here include : temperature, rainfall, wind speed, wind gusts, daylight duration, sunshine duration, and evapotranspiration.
 
-## News Sentiment
+## [News Sentiment](https://advance-lexis-com.ezproxy.lib.utexas.edu/bisnexishome)
 The sentiment ratio data is from the Nexis Uni search function. We divided the amount of "marked negative" (as determined by their news reviewing AI) articles about coffee in a finance and banking setting by the total number of articles about coffee in the topics of finance and banking from 1990 to 2025. The data was only yearly so we split the change for each number into 12 equal parts, one for each month, then divided the numbers by one another each month to get a "sentiment ratio."
 
 ## Data Cleaning
